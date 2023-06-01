@@ -1,1 +1,2 @@
-console.log("🎉 Client Server working powered by Webpack 🎉")
+import './styles/style.css'
+console.log("🎉 Estilos cargados correctamente 🎉");

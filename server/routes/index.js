@@ -3,7 +3,7 @@ const {Router} = express;
 const router = Router();
 
 /* GET home page. */
-router.get('/', (req, res, next) => {
+router.get('/', (req, res) => {
   let iconSet = ["🥧", "🍉", "🥂"];
   let icon = iconSet[Math.floor(Math.random() * 3)];
   res.render('index', { title: 'Convocatoria Docente', icon});
