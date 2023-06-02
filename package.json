@@ -12,13 +12,15 @@
     "clean": "rm -rf ./dist",
     "cleanc": "rm -f ./public/bundle.js ./public/styles/app.css",
     "lint:c": "eslint ./client/**/*.js",
-    "lint:s": "eslint ./server/**/*.js"
+    "lint:s": "eslint ./server/**/*.js",
+    "clean:logs": "rm -rf ./server/logs/*.log"
   },
   "dependencies": {
+    "app-root-path": "^3.1.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "^4.18.2",
-    "hbs": "^4.2.0",
+    "express-handlebars": "^7.0.7",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
     "webpack": "^5.85.0",
@@ -38,9 +40,14 @@
     "core-js": "^3.30.2",
     "css-loader": "^6.8.1",
     "eslint": "^8.41.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.8.0",
     "eslint-import-resolver-babel-module": "^5.3.2",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-prettier": "^4.2.1",
     "eslint-webpack-plugin": "^4.0.1",
     "mini-css-extract-plugin": "^2.7.6",
+    "prettier": "^2.8.8",
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.15.0"
   }

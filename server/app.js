@@ -4,62 +4,71 @@ import path from 'path';
 import cookieParser from 'cookie-parser';
 import morgan from 'morgan';
 
-import indexRouter from '@server/routes/index';
-import usersRouter from '@server/routes/users';
-import apiRouter from '@server/routes/api';
-
-//Settig webpack modules
-import webpack from 'webpack'; 
+// Settig webpack modules
+import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
-//Importing webpack configuration
+
+// Importando el configurador del motor de plantillas
+import configTemplateEngine from './config/templateEngine';
+
+// Importing webpack configuration
 import webpackConfig from '../webpack.dev.config';
+
+import log from './config/winston';
+
+// Importando enrutador
+import router from './router';
+
+// eslint-disable-next-line
+global["__rootdir"] = path.resolve(process.cwd());
 
 const app = express();
 
-//Get the execution mode
+// Get the execution mode
 const nodeEnviroment = process.env.NODE_ENV || 'production';
 
-//Deciding if we add webpack middleware or not
-if(nodeEnviroment === 'development'){
-  console.log("⚽Ejecutando en modo desarrollo⚽");
-  //Adding the key "mode" with its value "developement"
+// Deciding if we add webpack middleware or not
+if (nodeEnviroment === 'development') {
+  console.log('⚽Ejecutando en modo desarrollo⚽');
+  // Adding the key "mode" with its value "developement"
   webpackConfig.mode = nodeEnviroment;
-  //Setting the port
+  // Setting the port
   webpackConfig.devServer.port = process.env.PORT;
-  //Setting up the HMR(Hot module replacement)
+  // Setting up the HMR(Hot module replacement)
   webpackConfig.entry = [
-    "webpack-hot-middleware/client?reload=true&timeout=1000", webpackConfig.entry
+    'webpack-hot-middleware/client?reload=true&timeout=1000',
+    webpackConfig.entry,
   ];
-  //Creating the bundler
+  // Creating the bundler
   const bundle = webpack(webpackConfig);
-  //Enabling the webpack middleware
-  app.use(webpackDevMiddleware(bundle, {
-    publicPath: webpackConfig.output.publicPath
-  }));
-  //Enabling the webpack HMR
-  app.use(webpackHotMiddleware(bundle, {
-    publicPath: webpackConfig.output.path
-  }));
-  //Enabling the webpack HRM
+  // Enabling the webpack middleware
+  app.use(
+    webpackDevMiddleware(bundle, {
+      publicPath: webpackConfig.output.publicPath,
+    })
+  );
+  // Enabling the webpack HMR
+  app.use(
+    webpackHotMiddleware(bundle, {
+      publicPath: webpackConfig.output.path,
+    })
+  );
+  // Enabling the webpack HRM
   app.use(webpackHotMiddleware(bundle));
-}else {
-  console.log("📯Ejecutando en modo producción📯")
+} else {
+  console.log('📯Ejecutando en modo producción📯');
 }
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
-
-app.use(morgan('dev'));
+// 🍇view engine setup🍇
+configTemplateEngine(app);
+app.use(morgan('combined', { stream: log.stream }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/api', apiRouter);
+router.addRoutes(app);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
