@@ -2,12 +2,12 @@
 // GET "/"
 // GET "/index"
 const home = (req, res) => {
-  res.render('index', { title: 'DWPCII-2023A' });
+  res.render('home/homeView', { title: 'DWPCII-2023A' });
 };
 
-// Get "/index"
+// Get "/about"
 const about = (req, res) => {
-  res.send('🪓 Under construction: get /about 🪓');
+  res.render('home/aboutView');
 };
 
 // Controlador Home
