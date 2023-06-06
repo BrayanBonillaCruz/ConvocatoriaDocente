@@ -1,13 +1,12 @@
 body{
-    padding: 50px;
-    font-size: 14px;
+    padding: 0px;
+    margin: 0px;
     font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
   }
 
-  a{
-    color: #00B7FF;
-  }
+.carousel h2 {
+  position: relative;
+  top: 50%;
+  color: #fff;
+}
 
-  h1{
-    color: teal;
-  }
