@@ -8,6 +8,9 @@ import http from 'http';
 import app from '../app';
 // Impornting winston logger
 import log from '../config/winston';
+// Importing config Keys
+import configKeys from '../config/configKeys.js';
+
 /**
  * Normalize a port into a number, string, or false.
  */
@@ -31,7 +34,7 @@ function normalizePort(val) {
  * Get port from environment and store in Express.
  */
 
-const port = normalizePort(process.env.PORT || '3000');
+const port = normalizePort(configKeys.port);
 app.set('port', port);
 
 /**
