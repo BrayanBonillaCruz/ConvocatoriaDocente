@@ -1,0 +1,255 @@
+   <div class="row "
+   style="margin: 3em; padding: 2em; border-radius: 1em;">
+    <div class="col s18 m12">
+      <div class="card center grey lighten-4">
+        <div class="card-content white-text">
+          <div>
+            <img class="row center" width="250" src="/img/azul.jpg">
+          </div>
+          <h1 class="black-text darken-1-text" style="font-style: italic;">Crear Cuenta </h1>
+           
+          <form >
+            {{!-- nombre --}}
+            <div class='input-field'>
+            <label for='project-name' class="black-text">Nombre(S)</label>
+            <input
+              placeholder='Nombre(S)'
+              id='correo'
+              name='nombre'
+              type='text'
+              class="validate"
+              value="{{ project.name }}"
+              required
+            />
+            <span 
+              class="helper-text"
+              data-error="Es necesario que ingrese su o sus Nombres"
+              data-success="✅ Correcto"
+              ></span>
+            {{#if errorModel.nombre }}
+            <span style="color: crimson;">Error: {{ errorModel.nombre }}</span>
+            {{/if}}
+          </div>
+
+          {{!-- Apellidos --}}
+
+        <div class='input-field'>
+            <label for='project-name' class="black-text">Apellidos</label>
+            <input
+              placeholder='Apellidos'
+              id='correo'
+              name='apellidos'
+              type='text'
+              class="validate"
+              value="{{ project.apellidos }}"
+              required
+            />
+            <span 
+              class="helper-text"
+              data-error="Es Necesario que ingrese sus Apellidos"
+              data-success="✅ Correcto"
+              ></span>
+            {{#if errorModel.apellido }}
+            <span style="color: crimson;">Error: {{ errorModel.apellido }}</span>
+            {{/if}}
+          </div>
+
+          {{!-- Correo --}}
+
+        <div class='input-field'>
+            <label for='project-name' class="black-text">Correo Electronico</label>
+            <input
+              placeholder='Correo electronico 💬'
+              id='correo'
+              name='correo'
+              type='text'
+              class="validate"
+              value="{{ project.name }}"
+              required
+            />
+            <span 
+              class="helper-text"
+              data-error="Es Necesario que ingrese su direccion de Correo Electronico"
+              data-success="✅ Correcto"
+              ></span>
+            {{#if errorModel.name }}
+            <span style="color: crimson;">Error: {{ errorModel.name }}</span>
+            {{/if}}
+          </div>
+
+          {{!-- Password --}}
+
+        <div class='input-field'>
+            <label for='project-name' class="black-text">Password</label>
+            <input
+              placeholder='Password'
+              id='correo'
+              name='password'
+              type='password'
+              class="validate"
+              value="{{ project.name }}"
+              required
+            />
+            <span 
+              class="helper-text"
+              data-error="Es Necesario que ingrese su Password"
+              data-success="✅ Correcto"
+              ></span>
+            {{#if errorModel.password }}
+            <span style="color: crimson;">Error: {{ errorModel.password }}</span>
+            {{/if}}
+          </div>
+
+          {{!-- Confirmacion de Password --}}
+
+         <div class='input-field'>
+            <label for='project-name' class="black-text">Confirmacion de Password</label>
+            <input
+              placeholder='Confirmacion de Password'
+              id='correo'
+              name='configpass'
+              type='password'
+              class="validate"
+              value="{{ project.name }}"
+              required
+            />
+            <span 
+              class="helper-text"
+              data-error="Es Necesario que Confirme de nuevo su Password"
+              data-success="✅ Correcto"
+              ></span>
+            {{#if errorModel.configpass }}
+            <span style="color: crimson;">Error: {{ errorModel.configpass }}</span>
+            {{/if}}
+          </div>
+
+          {{!-- Numero Telefonico --}}
+
+         <div class='input-field'>
+            <label for='project-name' class="black-text">Numero de Telefono</label>
+            <input
+              placeholder='Ingrese su Numero de Telefono'
+              id='correo'
+              name='numero'
+              type='number'
+              class="validate"
+              value="{{ project.name }}"
+              required
+            />
+            <span 
+              class="helper-text"
+              data-error="Es Necesario que Ingrese su Numero Telefonico"
+              data-success="✅ Correcto"
+              ></span>
+            {{#if errorModel.numero }}
+            <span style="color: crimson;">Error: {{ errorModel.numero }}</span>
+            {{/if}}
+          </div>
+
+          {{!-- RFC --}}
+
+         <div class='input-field'>
+            <label for='project-name' class="black-text">RFC</label>
+            <input
+              placeholder='RFC'
+              id='correo'
+              name='RFC'
+              type='text'
+              class="validate"
+              value="{{ project.name }}"
+              required
+            />
+            <span 
+              class="helper-text"
+              data-error="Es Necesario que ingrese su RFC"
+              data-success="✅ Correcto"
+              ></span>
+            {{#if errorModel.RFC }}
+            <span style="color: crimson;">Error: {{ errorModel.RFC }}</span>
+            {{/if}}
+          </div>
+
+          {{!-- CURP --}}
+
+        <div class='input-field'>
+            <label for='project-name' class="black-text">CURP</label>
+            <input
+              placeholder='CURP'
+              id='correo'
+              name='CURP'
+              type='text'
+              class="validate"
+              value="{{ project.name }}"
+              required
+            />
+            <span 
+              class="helper-text"
+              data-error="Es Necesario que ingrese su CURP"
+              data-success="✅ Correcto"
+              ></span>
+            {{#if errorModel.CURP }}
+            <span style="color: crimson;">Error: {{ errorModel.CURP }}</span>
+            {{/if}}
+          </div>
+
+          {{!-- Entidad Federativa --}}
+
+        <div class='input-field'>
+            <label for='project-name' class="black-text">Entidad Federativa</label>
+            <input
+              placeholder='Entidad Federativa'
+              id='correo'
+              name='entd'
+              type='text'
+              class="validate"
+              value="{{ project.name }}"
+              required
+            />
+            <span 
+              class="helper-text"
+              data-error="Es Necesario que ingrese su Entidad Federativa"
+              data-success="✅ Correcto"
+              ></span>
+            {{#if errorModel.entd }}
+            <span style="color: crimson;">Error: {{ errorModel.entd }}</span>
+            {{/if}}
+          </div>
+
+          {{!-- Fecha de Nacimiento --}}
+
+        <div class='input-field'>
+            <label for='project-name' class="black-text">Fecha de Nacimiento</label>
+            <input
+              placeholder='Fecha de Nacimiento'
+              id='correo'
+              name='fecha'
+              type='text'
+              class="validate"
+              value="{{ project.name }}"
+              required
+            />
+            <span 
+              class="helper-text"
+              data-error="Es Necesario que ingrese su Fecha de Nacimiento"
+              data-success="✅ Correcto"
+              ></span>
+            {{#if errorModel.fecha }}
+            <span style="color: crimson;">Error: {{ errorModel.fecha }}</span>
+            {{/if}}
+          </div>
+  
+      <div class="row">
+        <div class="col s12">
+          <div class="row center">
+        <a href="/" id="download-button"
+        class="btn-large grey lighten-1 black-text">
+            Continuar
+        </a>
+    </div>
+        </div>
+      </div>
+    </form>
+          
+      </div>
+    </div>
+  </div>
