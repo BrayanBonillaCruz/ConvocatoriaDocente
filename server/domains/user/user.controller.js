@@ -1,7 +1,7 @@
 // Actions methods
 // GET "/user/login"
 const login = (req, res) => {
-  res.send('🪓 Under construction: get user/login 🪓');
+  res.render('user/login');
 };
 
 // GET "/user/logout"
@@ -11,7 +11,7 @@ const logout = (req, res) => {
 
 // GET "/user/register"
 const register = (req, res) => {
-  res.send('🪓 Under construction: get user/register 🪓');
+  res.render('user/register');
 };
 
 // Controlador Home
